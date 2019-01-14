@@ -2,7 +2,7 @@
 <feature
       id="plugin-review.feature"
       label="plugin-review Feature"
-      version="0.0.1.20190113-1524">
+      version="0.0.1.20190114-1243">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -23,9 +23,9 @@
 
    <plugin
          id="plugin-review.core"
-         download-size="23576"
-         install-size="25778"
-         version="0.0.1.20190113-1524"
+         download-size="23578"
+         install-size="25784"
+         version="0.0.1.20190114-1243"
          unpack="false"/>
 
 </feature>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/plugin-review.feature_0.0.0.jar" id="plugin-review.feature" version="0.0.0">
+    <category name="plugin-review"/>
+   </feature>
+   <feature url="features/plugin-review.feature.source_0.0.0.jar" id="plugin-review.feature.source" version="0.0.0">
+    <category name="plugin-review Developer Resources"/>
+   </feature>
+</site>

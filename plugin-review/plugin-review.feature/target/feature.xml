@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="plugin-review.feature"
+      label="plugin-review Feature"
+      version="0.0.1.20190113-1524">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="plugin-review Update Site" url="http://www.example.com/update"/>
+      <discovery label="plugin-review Discovery Site" url="http://www.example.com/update"/>
+   </url>
+
+   <plugin
+         id="plugin-review.core"
+         download-size="23576"
+         install-size="25778"
+         version="0.0.1.20190113-1524"
+         unpack="false"/>
+
+</feature>

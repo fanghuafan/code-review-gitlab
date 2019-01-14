@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!-- 设置基本信息  -->
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="cn.eclipse.code.review.ui.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            class="cn.eclipse.code.review.ui.preferences.CodeReviewPreferencePage"
+            id="cn.eclipse.code.review.ui.preferences.CodeReviewPreferencePage"
+            name="Code Review">
+      </page>
+      <page
+            category="cn.eclipse.code.review.ui.preferences.CodeReviewPreferencePage"
+            class="cn.eclipse.code.review.ui.preferences.GitLabPerferencePage"
+            id="cn.eclipse.code.review.ui.preferences.GitLabPerferencePage"
+            name="GitLab Setting">
+      </page>
+      <page
+            category="cn.eclipse.code.review.ui.preferences.CodeReviewPreferencePage"
+            class="cn.eclipse.code.review.ui.preferences.DatabasePerferencePage"
+            id="cn.eclipse.code.review.ui.preferences.DatabasePerferencePage"
+            name="MySQL Setting">
+      </page>
+      <page
+            category="cn.eclipse.code.review.ui.preferences.CodeReviewPreferencePage"
+            class="cn.eclipse.code.review.ui.preferences.UserPerferencePage"
+            id="cn.eclipse.code.review.ui.preferences.UserPerferencePage"
+            name="User Setting">
+      </page>
+      <!--TODO hot keys-->
+      <!--
+      <page
+            category="cn.eclipse.code.review.ui.preferences.CodeReviewPreferencePage"
+            class="cn.eclipse.code.review.ui.preferences.HotKeyPreferencePage"
+            id="cn.eclipse.code.review.ui.preferences.HotKeyPreferencePage"
+            name="HotKey Setting">
+      </page>
+      -->
+   </extension>   
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="cn.eclipse.code.review.commands.category"
+            name="Code Review">
+      </category>
+      <command
+            categoryId="cn.eclipse.code.review.commands.category"
+            name="Code Review"
+            id="cn.eclipse.code.review.commands.CodeReview.toolbar">
+      </command>
+   </extension>
+
+   <!-- 右键菜单 -->
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:#AbstractTextEditorContext">
+         <command
+               commandId="cn.ieclipse.code.review.CodeReview"
+               icon="icons/add.png"
+               label="Code Review"
+               style="push">
+         </command>
+      </menuContribution>
+      
+      <!-- toolbar -->
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="cn.eclipse.code.review.toolbars.sampleToolbar">
+            <command
+                  id="cn.eclipse.code.review.commands.CodeReview.toolbar"
+                  commandId="cn.eclipse.code.review.commands.CodeReview.toolbar"
+                  icon="icons/review.png"
+                  tooltip="Code Review List">
+            </command>
+         </toolbar>
+      </menuContribution>      
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="cn.ieclipse.code.review.CodeReview"
+            name="Code Review">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="cn.eclipse.code.review.handlers.ReviewHandler"
+            commandId="cn.ieclipse.code.review.CodeReview">
+      </handler>
+      <!-- toolbar -->
+      <handler
+            class="cn.eclipse.code.review.handlers.CodeReviewListHandler"
+            commandId="cn.eclipse.code.review.commands.CodeReview.toolbar">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="cn.eclipse.code.review.commands.CodeReview.toolbar"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6">
+      </key>
+   </extension>
+</plugin>

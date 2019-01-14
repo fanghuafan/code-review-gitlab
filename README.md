@@ -1,8 +1,9 @@
+![avatar](view-images/0.png)     
+    
 # code-review-gitlab
  This is the code review plug-in for eclipse associated gitlab！
 
 ## view
-![avatar](view-images/0.png)         
 
 ![avatar](view-images/1.png)       
 

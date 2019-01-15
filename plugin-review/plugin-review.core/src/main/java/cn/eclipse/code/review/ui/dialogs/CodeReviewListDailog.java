@@ -51,6 +51,7 @@ public class CodeReviewListDailog extends Dialog {
 	private Composite reviewContainer = null;
 	private CodeReviewviewTableViewer view = null;
 	private Button currentButton = null;
+
 	/**
      * Create the dialog.
      * 

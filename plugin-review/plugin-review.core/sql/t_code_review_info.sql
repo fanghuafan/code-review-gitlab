@@ -26,6 +26,7 @@ CREATE TABLE `t_code_review_info` (
   `gitlab_review_id` int(11) DEFAULT NULL COMMENT '关联gitlab上的主键id\ncomment对应code note id\nissue对应issue id\nsnippets对应snippets id',
   `repo_name` varchar(1024) DEFAULT NULL COMMENT '仓库名称',
   `gitlab_owner` varchar(256) DEFAULT NULL COMMENT 'gitlab上工程创建人',
+  `project_class_path` varchar(2048) DEFAULT NULL COMMENT '类的相对路径',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='code review相关相关信息记录数据库'
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='code review相关相关信息记录数据库'

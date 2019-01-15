@@ -272,6 +272,9 @@ public class ReviewDialog extends Dialog {
 		}
 		if (mReviewModel == null) {
 			mReviewModel = new ReviewModel();
+			if (file != null) {
+				mReviewModel.setProjectClassPath(file.getFullPath().toOSString());
+			}
 		}
 		UserModel toCoder = reviewerMap.get(chooseIndex);
 		if (toCoder == null) {

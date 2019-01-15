@@ -63,8 +63,9 @@ public class CodeReviewMapper {
 		String sql = "Insert Into t_code_review_info "
 				+ "(reviewer, to_coder, project, class_path, start_line, end_line, comment_time, comment, "
 				+ "status, complete_time, code, code_change, comment_type, commit_id, coder_reply,"
-				+ "reviewer_id,to_coder_id,review_grade,delete_status,repo_name,gitlab_owner,gitlab_project_id,gitlab_review_id) "
-				+ "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "reviewer_id,to_coder_id,review_grade,delete_status,repo_name,gitlab_owner,"
+				+ "gitlab_project_id,gitlab_review_id, project_class_path) "
+				+ "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pst = MySQLHelper.getPreparedStatement(sql);
 		if (pst == null) {
 			return false;
@@ -102,6 +103,7 @@ public class CodeReviewMapper {
 			pst.setString(21, model.getGitlabOwner());
 			pst.setInt(22, model.getGitlabProjectId());
 			pst.setInt(23, model.getGitlabCommentId() == null ? 0 : model.getGitlabCommentId());
+			pst.setString(24, model.getProjectClassPath());
 			int count = pst.executeUpdate();
 			if (count > 0) {
 				return true;
@@ -222,6 +224,7 @@ public class CodeReviewMapper {
 				model.setGitlabCommentId(rs.getInt("gitlab_review_id"));
 				model.setRepoName(rs.getString("repo_name"));
 				model.setGitlabOwner(rs.getString("gitlab_owner"));
+				model.setProjectClassPath(rs.getString("project_class_path"));
 
 //				log.log("query comment result:" + model);
 				daList.add(model);

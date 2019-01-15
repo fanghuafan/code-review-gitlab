@@ -113,14 +113,14 @@
             commandId="cn.eclipse.code.review.commands.CodeReview.toolbar"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             contextId="org.eclipse.ui.contexts.window"
-            sequence="Ctrl+shift+O">
+            sequence="Ctrl+Alt+O">
       </key>
       <!-- 打开添加code review窗口 -->
       <key
             commandId="cn.ieclipse.code.review.CodeReview"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             contextId="org.eclipse.ui.contexts.window"
-            sequence="Ctrl+shift+P">
+            sequence="Ctrl+Alt+L">
       </key>
    </extension>
    

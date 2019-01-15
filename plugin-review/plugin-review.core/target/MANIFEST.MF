@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: plugin-review.core;singleton:=true
 Bundle-Name: plugin-review Core Plugin
-Bundle-Version: 0.0.1.20190114-1243
+Bundle-Version: 0.0.1.20190115-1245
 Bundle-ClassPath: .,libs/gson-2.8.0.jar,libs/okhttp-3.8.1.jar,libs/oki
  o-1.13.0.jar,libs/happy-dns-java-0.1.4.jar,libs/qiniu-java-sdk-7.2.7.
  jar,libs/core-0.0.1.jar,libs/smartqq-0.0.1.jar,libs/wechat-0.0.1.jar,

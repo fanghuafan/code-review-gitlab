@@ -79,7 +79,7 @@ public class CodeReviewviewTableViewer {
 	 */
 	public void setData(QueryConditionModel condition) {
 		if (services.count(condition) == 0) {
-			MessageDialog.openError(null, "Error", "Code Review info is null!");
+			MessageDialog.openError(null, "Error", "Code Review List is null!");
 			return;
 		}
 		tableViewer.setInput(services.getReviewRecordList(condition));
@@ -106,10 +106,10 @@ public class CodeReviewviewTableViewer {
 		new TableColumn(table, SWT.NONE).setText("project");
 
 		tLayout.addColumnData(new ColumnWeightData(10));
-		new TableColumn(table, SWT.NONE).setText("coder");
+		new TableColumn(table, SWT.NONE).setText("reviewer");
 
 		tLayout.addColumnData(new ColumnWeightData(10));
-		new TableColumn(table, SWT.NONE).setText("reviewer");
+		new TableColumn(table, SWT.NONE).setText("assigee");
 
 		tLayout.addColumnData(new ColumnWeightData(30));
 		new TableColumn(table, SWT.NONE).setText("class");
@@ -163,9 +163,11 @@ public class CodeReviewviewTableViewer {
 					return;
 				}
 				// 打开i指定文件、指定类
-				if (IDEUtils.open(model.getClassPath(), line)) {
-					codeReviewListDailog.close();
-				}
+				if(model.getClassPath()!=null) {
+					if (model.getProjectClassPath() != null && IDEUtils.open(model.getProjectClassPath(), line)) {
+						codeReviewListDailog.close();
+					}
+				}	
 			}
 		});
 

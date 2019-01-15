@@ -24,6 +24,8 @@ public class ReviewModel {
 	private String project;
 	// class path
 	private String classPath;
+	// project class path
+	private String projectClassPath;
 	// class absolute path
 	private String absoluteClassPath;
 	// comment line
@@ -414,6 +416,20 @@ public class ReviewModel {
 		this.repoName = repoName;
 	}
 
+	/**
+	 * @return the projectClassPath
+	 */
+	public String getProjectClassPath() {
+		return projectClassPath;
+	}
+
+	/**
+	 * @param projectClassPath the projectClassPath to set
+	 */
+	public void setProjectClassPath(String projectClassPath) {
+		this.projectClassPath = projectClassPath;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -422,25 +438,26 @@ public class ReviewModel {
 	@Override
 	public String toString() {
 		return "ReviewModel [id=" + id + ", reviewer=" + reviewer + ", toCoder=" + toCoder + ", project=" + project
-				+ ", classPath=" + classPath + ", absoluteClassPath=" + absoluteClassPath + ", startLine=" + startLine
-				+ ", endLine=" + endLine + ", commentTime=" + commentTime + ", comment=" + comment + ", status="
-				+ status + ", completeTime=" + completeTime + ", code=" + code + ", codeChange=" + codeChange
-				+ ", commentType=" + commentType + ", commitId=" + commitId + ", coderReply=" + coderReply
-				+ ", reviewerId=" + reviewerId + ", toCoderId=" + toCoderId + ", reviewGrade=" + reviewGrade
-				+ ", deleteStatus=" + deleteStatus + ", gitlabProjectId=" + gitlabProjectId + ", gitlabCommentId="
-				+ gitlabCommentId + ", repoName=" + repoName + ", gitlabOwner=" + gitlabOwner + ", getGitlabOwner()="
-				+ getGitlabOwner() + ", getCoderReply()=" + getCoderReply() + ", getId()=" + getId()
-				+ ", getReviewer()=" + getReviewer() + ", getToCoder()=" + getToCoder() + ", getProject()="
-				+ getProject() + ", getClassPath()=" + getClassPath() + ", getStartLine()=" + getStartLine()
-				+ ", getEndLine()=" + getEndLine() + ", getCommentTime()=" + getCommentTime() + ", getComment()="
-				+ getComment() + ", getStatus()=" + getStatus() + ", getCompleteTime()=" + getCompleteTime()
-				+ ", getCode()=" + getCode() + ", getCodeChange()=" + getCodeChange() + ", getCommentType()="
-				+ getCommentType() + ", getCommitId()=" + getCommitId() + ", getReviewerId()=" + getReviewerId()
-				+ ", getToCoderId()=" + getToCoderId() + ", getReviewGrade()=" + getReviewGrade()
+				+ ", classPath=" + classPath + ", projectClassPath=" + projectClassPath + ", absoluteClassPath="
+				+ absoluteClassPath + ", startLine=" + startLine + ", endLine=" + endLine + ", commentTime="
+				+ commentTime + ", comment=" + comment + ", status=" + status + ", completeTime=" + completeTime
+				+ ", code=" + code + ", codeChange=" + codeChange + ", commentType=" + commentType + ", commitId="
+				+ commitId + ", coderReply=" + coderReply + ", reviewerId=" + reviewerId + ", toCoderId=" + toCoderId
+				+ ", reviewGrade=" + reviewGrade + ", deleteStatus=" + deleteStatus + ", gitlabProjectId="
+				+ gitlabProjectId + ", gitlabCommentId=" + gitlabCommentId + ", repoName=" + repoName + ", gitlabOwner="
+				+ gitlabOwner + ", getGitlabOwner()=" + getGitlabOwner() + ", getCoderReply()=" + getCoderReply()
+				+ ", getId()=" + getId() + ", getReviewer()=" + getReviewer() + ", getToCoder()=" + getToCoder()
+				+ ", getProject()=" + getProject() + ", getClassPath()=" + getClassPath() + ", getStartLine()="
+				+ getStartLine() + ", getEndLine()=" + getEndLine() + ", getCommentTime()=" + getCommentTime()
+				+ ", getComment()=" + getComment() + ", getStatus()=" + getStatus() + ", getCompleteTime()="
+				+ getCompleteTime() + ", getCode()=" + getCode() + ", getCodeChange()=" + getCodeChange()
+				+ ", getCommentType()=" + getCommentType() + ", getCommitId()=" + getCommitId() + ", getReviewerId()="
+				+ getReviewerId() + ", getToCoderId()=" + getToCoderId() + ", getReviewGrade()=" + getReviewGrade()
 				+ ", getDeleteStatus()=" + getDeleteStatus() + ", getGitlabProjectId()=" + getGitlabProjectId()
 				+ ", getGitlabCommentId()=" + getGitlabCommentId() + ", getAbsoluteClassPath()="
-				+ getAbsoluteClassPath() + ", getRepoName()=" + getRepoName() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ getAbsoluteClassPath() + ", getRepoName()=" + getRepoName() + ", getProjectClassPath()="
+				+ getProjectClassPath() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
 	}
 
 }

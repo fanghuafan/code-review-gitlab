@@ -40,6 +40,7 @@ public class CloseReviewDialog extends Dialog {
 
 	// review model
 	private ReviewModel mReviewModel;
+	private CodeReviewListDailog codeReviewListDailog;
 
 	/**
      * Create the dialog.
@@ -55,6 +56,13 @@ public class CloseReviewDialog extends Dialog {
 	 */
 	public void setmReviewModel(ReviewModel mReviewModel) {
 		this.mReviewModel = mReviewModel;
+	}
+
+	/**
+	 * @param codeReviewListDailog the codeReviewListDailog to set
+	 */
+	public void setCodeReviewListDailog(CodeReviewListDailog codeReviewListDailog) {
+		this.codeReviewListDailog = codeReviewListDailog;
 	}
 
 	/**
@@ -134,8 +142,11 @@ public class CloseReviewDialog extends Dialog {
 			// tips error
 			MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "错误提示", "数据无法写入数据库！");
 		}
-
 		super.okPressed();
+		// 刷新数据
+		if (mReviewModel.getId() != null) {
+			codeReviewListDailog.reviewList(null);
+		}
 	}
 
 	/**

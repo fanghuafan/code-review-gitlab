@@ -229,6 +229,7 @@ public class ReviewActionGroup extends ActionGroup {
 			} else {
 				CloseReviewDialog dialog = new CloseReviewDialog(Display.getCurrent().getActiveShell());
 				dialog.setmReviewModel(obj);
+				dialog.setCodeReviewListDailog(codeReviewListDailog);
 				dialog.open();
 			}
 		}

@@ -322,6 +322,9 @@ public class ReviewDialog extends Dialog {
 						"数据无法写入数据库！（原因可能是写入gitlab失败）");
 				return;
 			}
+
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "成功提示", "您成功保存review info!");
+
 			super.okPressed();
 			// 刷新数据
 			if (mReviewModel.getId() != null) {

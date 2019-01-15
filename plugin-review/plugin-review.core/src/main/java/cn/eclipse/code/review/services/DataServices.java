@@ -317,7 +317,7 @@ public class DataServices {
 	 * @return
 	 */
 	public Integer handleSnippets(ReviewModel model) {
-		if (model == null || model.getClassPath() == null) {
+		if (model == null || model.getClassPath() == null || model.getCode() == null) {
 			return null;
 		}
 		String fileName = model.getClassPath().substring(model.getClassPath().lastIndexOf("/") + 1,

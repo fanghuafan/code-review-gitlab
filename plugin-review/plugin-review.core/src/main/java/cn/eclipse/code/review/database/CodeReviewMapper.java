@@ -244,6 +244,7 @@ public class CodeReviewMapper {
 	 */
 	public long countCodeReview(QueryConditionModel condition) {
 		String sql = "select count(*) as total from t_code_review_info " + whereCondition(condition);
+		log.log("count sql:" + sql);
 		PreparedStatement pst = MySQLHelper.getPreparedStatement(sql);
 		if (pst == null) {
 			return 0;
@@ -323,8 +324,8 @@ public class CodeReviewMapper {
 			}
 			// comment模糊查询
 			if (condition.getKey() != null && !condition.getKey().trim().equals("")) {
-				String temp0 = " comment like '%" + condition.getKey() + "%' and coder_reply like '%"
-						+ condition.getKey() + "%'";
+				String temp0 = " (comment like '%" + condition.getKey() + "%' or coder_reply like '%"
+						+ condition.getKey() + "%')";
 				if (!isFrist) {
 					temp = temp + " and " + temp0;
 				} else {

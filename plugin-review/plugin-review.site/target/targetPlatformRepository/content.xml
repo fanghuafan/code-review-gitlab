@@ -119,49 +119,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='plugin-review.core' version='0.0.1.20190115-1335'>
-      <update id='plugin-review.core' range='[0.0.0,0.0.1.20190115-1335)' severity='0'/>
-      <properties size='4'>
-        <property name='org.eclipse.equinox.p2.name' value='plugin-review Core Plugin'/>
-        <property name='maven-groupId' value='plugin.code.review'/>
-        <property name='maven-artifactId' value='plugin-review.core'/>
-        <property name='maven-version' value='0.0.1-SNAPSHOT'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.core' version='0.0.1.20190115-1335'/>
-        <provided namespace='osgi.bundle' name='plugin-review.core' version='0.0.1.20190115-1335'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='16'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.net' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.slf4j.api' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='ch.qos.logback.classic' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='ch.qos.logback.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.browser' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jgit' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.junit' range='0.0.0' optional='true' greedy='false'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jface' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='plugin-review.core' version='0.0.1.20190115-1335'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: plugin-review.core;singleton:=true&#xA;Bundle-Version: 0.0.1.20190115-1335
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.text' version='3.6.0.v20160503-1849' singleton='false'>
       <update id='org.eclipse.text' range='[0.0.0,3.6.0.v20160503-1849)' severity='0'/>
       <properties size='8'>
@@ -204,6 +161,43 @@
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='plugin-review.feature.feature.jar' version='0.0.1.20190116-2336'>
+      <properties size='6'>
+        <property name='org.eclipse.equinox.p2.name' value='plugin-review Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
+        <property name='maven-groupId' value='plugin.code.review'/>
+        <property name='maven-artifactId' value='plugin-review.feature'/>
+        <property name='maven-version' value='0.0.1-SNAPSHOT'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.feature.jar' version='0.0.1.20190116-2336'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='plugin-review.feature' version='0.0.1.20190116-2336'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='plugin-review.feature' version='0.0.1.20190116-2336'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
+          [Enter License Description here.]
+        </license>
+      </licenses>
+      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
+        [Enter Copyright Description here.]
+      </copyright>
     </unit>
     <unit id='config.a.jre.javase' version='1.7.0' singleton='false'>
       <hostRequirements size='1'>
@@ -516,25 +510,54 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='plugin-review.feature.source.feature.group' version='0.0.1.20190115-1335' singleton='false'>
-      <update id='plugin-review.feature.source.feature.group' range='[0.0.0,0.0.1.20190115-1335)' severity='0'/>
-      <properties size='8'>
-        <property name='org.eclipse.equinox.p2.name' value='plugin-review Feature Developer Resources'/>
+    <unit id='plugin-review.core.source' version='0.0.1.20190116-2336' singleton='false'>
+      <update id='plugin-review.core.source' range='[0.0.0,0.0.1.20190116-2336)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='unknown'/>
+        <property name='df_LT.bundleName' value='plugin-review Core Plugin Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='plugin.code.review'/>
+        <property name='maven-artifactId' value='plugin-review.core'/>
+        <property name='maven-version' value='0.0.1-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.core.source' version='0.0.1.20190116-2336'/>
+        <provided namespace='osgi.bundle' name='plugin-review.core.source' version='0.0.1.20190116-2336'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='plugin-review.core.source' version='0.0.1.20190116-2336'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: plugin-review.core.source&#xA;Bundle-Version: 0.0.1.20190116-2336
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='plugin-review.feature.feature.group' version='0.0.1.20190116-2336' singleton='false'>
+      <update id='plugin-review.feature.feature.group' range='[0.0.0,0.0.1.20190116-2336)' severity='0'/>
+      <properties size='7'>
+        <property name='org.eclipse.equinox.p2.name' value='plugin-review Feature'/>
         <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
         <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
         <property name='org.eclipse.equinox.p2.type.group' value='true'/>
         <property name='maven-groupId' value='plugin.code.review'/>
         <property name='maven-artifactId' value='plugin-review.feature'/>
         <property name='maven-version' value='0.0.1-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources-feature'/>
       </properties>
       <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.source.feature.group' version='0.0.1.20190115-1335'/>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.feature.group' version='0.0.1.20190116-2336'/>
       </provides>
-      <requires size='3'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.feature.group' range='[0.0.1.20190115-1335,0.0.1.20190115-1335]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.core.source' range='[0.0.1.20190115-1335,0.0.1.20190115-1335]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.source.feature.jar' range='[0.0.1.20190115-1335,0.0.1.20190115-1335]'>
+      <requires size='2'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.core' range='[0.0.1.20190116-2336,0.0.1.20190116-2336]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.feature.jar' range='[0.0.1.20190116-2336,0.0.1.20190116-2336]'>
           <filter>
             (org.eclipse.update.install.features=true)
           </filter>
@@ -1531,44 +1554,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='plugin-review.feature.source.feature.jar' version='0.0.1.20190115-1335'>
-      <properties size='7'>
-        <property name='org.eclipse.equinox.p2.name' value='plugin-review Feature Developer Resources'/>
-        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
-        <property name='maven-groupId' value='plugin.code.review'/>
-        <property name='maven-artifactId' value='plugin-review.feature'/>
-        <property name='maven-version' value='0.0.1-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources-feature'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.source.feature.jar' version='0.0.1.20190115-1335'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='plugin-review.feature.source' version='0.0.1.20190115-1335'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='plugin-review.feature.source' version='0.0.1.20190115-1335'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-      <licenses size='1'>
-        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
-          [Enter License Description here.]
-        </license>
-      </licenses>
-      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
-        [Enter Copyright Description here.]
-      </copyright>
-    </unit>
     <unit id='org.eclipse.e4.core.di.extensions' version='0.14.0.v20160211-1614'>
       <update id='org.eclipse.e4.core.di.extensions' range='[0.0.0,0.14.0.v20160211-1614)' severity='0'/>
       <properties size='8'>
@@ -2049,6 +2034,49 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='plugin-review.core' version='0.0.1.20190116-2336'>
+      <update id='plugin-review.core' range='[0.0.0,0.0.1.20190116-2336)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='plugin-review Core Plugin'/>
+        <property name='maven-groupId' value='plugin.code.review'/>
+        <property name='maven-artifactId' value='plugin-review.core'/>
+        <property name='maven-version' value='0.0.1-SNAPSHOT'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.core' version='0.0.1.20190116-2336'/>
+        <provided namespace='osgi.bundle' name='plugin-review.core' version='0.0.1.20190116-2336'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='16'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.net' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.slf4j.api' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='ch.qos.logback.classic' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='ch.qos.logback.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.browser' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jgit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.junit' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='plugin-review.core' version='0.0.1.20190116-2336'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: plugin-review.core;singleton:=true&#xA;Bundle-Version: 0.0.1.20190116-2336
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.w3c.dom.smil' version='1.0.1.v200903091627' singleton='false'>
       <update id='org.w3c.dom.smil' range='[0.0.0,1.0.1.v200903091627)' severity='0'/>
       <properties size='5'>
@@ -2418,43 +2446,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='plugin-review.feature.feature.jar' version='0.0.1.20190115-1335'>
-      <properties size='6'>
-        <property name='org.eclipse.equinox.p2.name' value='plugin-review Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
-        <property name='maven-groupId' value='plugin.code.review'/>
-        <property name='maven-artifactId' value='plugin-review.feature'/>
-        <property name='maven-version' value='0.0.1-SNAPSHOT'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.feature.jar' version='0.0.1.20190115-1335'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='plugin-review.feature' version='0.0.1.20190115-1335'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='plugin-review.feature' version='0.0.1.20190115-1335'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-      <licenses size='1'>
-        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
-          [Enter License Description here.]
-        </license>
-      </licenses>
-      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
-        [Enter Copyright Description here.]
-      </copyright>
-    </unit>
     <unit id='org.eclipse.equinox.p2.metadata.repository' version='1.2.300.v20160419-0834'>
       <update id='org.eclipse.equinox.p2.metadata.repository' range='[0.0.0,1.2.300.v20160419-0834)' severity='0'/>
       <properties size='8'>
@@ -2699,37 +2690,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.e4.ui.workbench3;singleton:=true&#xA;Bundle-Version: 0.13.100.v20160506-0759
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='plugin-review.core.source' version='0.0.1.20190115-1335' singleton='false'>
-      <update id='plugin-review.core.source' range='[0.0.0,0.0.1.20190115-1335)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='unknown'/>
-        <property name='df_LT.bundleName' value='plugin-review Core Plugin Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='plugin.code.review'/>
-        <property name='maven-artifactId' value='plugin-review.core'/>
-        <property name='maven-version' value='0.0.1-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.core.source' version='0.0.1.20190115-1335'/>
-        <provided namespace='osgi.bundle' name='plugin-review.core.source' version='0.0.1.20190115-1335'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='plugin-review.core.source' version='0.0.1.20190115-1335'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: plugin-review.core.source&#xA;Bundle-Version: 0.0.1.20190115-1335
           </instruction>
         </instructions>
       </touchpointData>
@@ -3136,6 +3096,44 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='plugin-review.feature.source.feature.jar' version='0.0.1.20190116-2336'>
+      <properties size='7'>
+        <property name='org.eclipse.equinox.p2.name' value='plugin-review Feature Developer Resources'/>
+        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
+        <property name='maven-groupId' value='plugin.code.review'/>
+        <property name='maven-artifactId' value='plugin-review.feature'/>
+        <property name='maven-version' value='0.0.1-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.source.feature.jar' version='0.0.1.20190116-2336'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='plugin-review.feature.source' version='0.0.1.20190116-2336'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='plugin-review.feature.source' version='0.0.1.20190116-2336'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
+          [Enter License Description here.]
+        </license>
+      </licenses>
+      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
+        [Enter Copyright Description here.]
+      </copyright>
+    </unit>
     <unit id='org.eclipse.equinox.ds' version='1.4.400.v20160226-2036'>
       <update id='org.eclipse.equinox.ds' range='[0.0.0,1.4.400.v20160226-2036)' severity='0'/>
       <properties size='9'>
@@ -3269,23 +3267,25 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='plugin-review.feature.feature.group' version='0.0.1.20190115-1335' singleton='false'>
-      <update id='plugin-review.feature.feature.group' range='[0.0.0,0.0.1.20190115-1335)' severity='0'/>
-      <properties size='7'>
-        <property name='org.eclipse.equinox.p2.name' value='plugin-review Feature'/>
+    <unit id='plugin-review.feature.source.feature.group' version='0.0.1.20190116-2336' singleton='false'>
+      <update id='plugin-review.feature.source.feature.group' range='[0.0.0,0.0.1.20190116-2336)' severity='0'/>
+      <properties size='8'>
+        <property name='org.eclipse.equinox.p2.name' value='plugin-review Feature Developer Resources'/>
         <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
         <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
         <property name='org.eclipse.equinox.p2.type.group' value='true'/>
         <property name='maven-groupId' value='plugin.code.review'/>
         <property name='maven-artifactId' value='plugin-review.feature'/>
         <property name='maven-version' value='0.0.1-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
       </properties>
       <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.feature.group' version='0.0.1.20190115-1335'/>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.source.feature.group' version='0.0.1.20190116-2336'/>
       </provides>
-      <requires size='2'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.core' range='[0.0.1.20190115-1335,0.0.1.20190115-1335]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.feature.jar' range='[0.0.1.20190115-1335,0.0.1.20190115-1335]'>
+      <requires size='3'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.feature.group' range='[0.0.1.20190116-2336,0.0.1.20190116-2336]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.core.source' range='[0.0.1.20190116-2336,0.0.1.20190116-2336]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='plugin-review.feature.source.feature.jar' range='[0.0.1.20190116-2336,0.0.1.20190116-2336]'>
           <filter>
             (org.eclipse.update.install.features=true)
           </filter>

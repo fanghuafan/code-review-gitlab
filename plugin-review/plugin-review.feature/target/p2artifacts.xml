@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='2'>
-  <artifact classifier='org.eclipse.update.feature' id='plugin-review.feature' version='0.0.1.20190115-1335'>
+  <artifact classifier='org.eclipse.update.feature' id='plugin-review.feature' version='0.0.1.20190116-2336'>
     <properties size='6'>
       <property name='artifact.size' value='800'/>
       <property name='download.size' value='800'/>
@@ -11,10 +11,10 @@
       <property name='download.contentType' value='application/zip'/>
     </properties>
   </artifact>
-  <artifact classifier='org.eclipse.update.feature' id='plugin-review.feature.source' version='0.0.1.20190115-1335'>
+  <artifact classifier='org.eclipse.update.feature' id='plugin-review.feature.source' version='0.0.1.20190116-2336'>
     <properties size='7'>
-      <property name='artifact.size' value='2228'/>
-      <property name='download.size' value='2228'/>
+      <property name='artifact.size' value='2230'/>
+      <property name='download.size' value='2230'/>
       <property name='maven-groupId' value='plugin.code.review'/>
       <property name='maven-artifactId' value='plugin-review.feature'/>
       <property name='maven-version' value='0.0.1-SNAPSHOT'/>

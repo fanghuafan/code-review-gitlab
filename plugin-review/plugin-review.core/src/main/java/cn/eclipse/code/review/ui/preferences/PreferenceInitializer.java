@@ -9,6 +9,7 @@ import org.eclipse.jface.util.PropertyChangeEvent;
 
 import cn.eclipse.code.review.CRPlugin;
 import cn.eclipse.code.review.common.StoreType;
+import cn.eclipse.code.review.database.MySQLHelper;
 import cn.eclipse.code.review.model.UserModel;
 import cn.eclipse.code.review.services.DataServices;
 import cn.eclipse.code.review.ui.preferences.store.Store;
@@ -24,9 +25,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	 */
 	@Override
     public void initializeDefaultPreferences() {
-		// TODO 添加Key监听
-//		Display.getCurrent().getActiveShell().addKeyListener(new cn.eclipse.code.review.moniter.KeyListener());
-
 		IPreferenceStore store = CRPlugin.getDefault().getPreferenceStore();
 
 		// 添加value改变监听
@@ -38,7 +36,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 				} else if (event.getNewValue() instanceof Boolean) {
 					store.setDefault(event.getProperty(), (Boolean) event.getNewValue());
 				}
-				// 判断是否市User表存储变化
+				// 判断是否是User表存储变化
 				if (event.getProperty() != null && event.getProperty().contains(UserPerferencePage.USER_ROOT)) {
 					UserModel info = (UserModel) Store.getStoreInfo(StoreType.USER);
 					if (info != null) {
@@ -56,6 +54,11 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 							services.updateUser(info);
 						}
 					}
+				}
+				// 判断是否是更新数据库信息
+				if (event.getProperty() != null && event.getProperty().contains(DatabasePerferencePage.ROOT)) {
+					// 关闭旧的链接，打开新的连接
+					MySQLHelper.close();
 				}
 			}
 		});

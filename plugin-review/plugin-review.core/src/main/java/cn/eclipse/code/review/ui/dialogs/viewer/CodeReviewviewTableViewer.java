@@ -66,7 +66,9 @@ public class CodeReviewviewTableViewer {
 		// setting column
 		tableViewer.setLabelProvider(new TableViewerLabelProvider());
 		// setting data
-		setData(condition);
+		if (!setData(condition)) {
+			return;
+		}
 		addListener();
 		ReviewActionGroup actionGroup = new ReviewActionGroup(tableViewer, codeReviewListDailog);
 		actionGroup.fillContextMenu(new MenuManager());
@@ -77,13 +79,14 @@ public class CodeReviewviewTableViewer {
 	 * @author jack_fan
 	 * @date 2018年12月21日
 	 */
-	public void setData(QueryConditionModel condition) {
+	public Boolean setData(QueryConditionModel condition) {
 		if (services.count(condition) == 0) {
-			MessageDialog.openError(null, "Error", "Code Review List is null!");
-			return;
+			MessageDialog.openInformation(null, "Error", "Code Review List is null!");
+			return false;
 		}
 		tableViewer.setInput(services.getReviewRecordList(condition));
 		codeReviewListDailog.setCurrentPageNumber(condition.getPage());
+		return true;
 	}
 
 	/**

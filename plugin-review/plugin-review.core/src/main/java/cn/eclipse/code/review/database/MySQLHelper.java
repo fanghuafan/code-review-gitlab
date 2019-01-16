@@ -38,7 +38,7 @@ public class MySQLHelper {
 	private static void init() {
 		if (conn == null) {
 			MySQLConnectionModel model = (MySQLConnectionModel) Store.getStoreInfo(StoreType.MYSQL);
-			if (model == null) {
+			if (model == null || model.getAddr() == null) {
 				// tips error
 				MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "错误提示", "数据无法写入数据库，请设置数据库信息！");
 			}
@@ -106,8 +106,12 @@ public class MySQLHelper {
 	 */
 	public static void close() {
 		try {
-			conn.close();
-			pst.close();
+			if (conn != null) {
+				conn.close();
+			}
+			if (pst != null) {
+				pst.close();
+			}
 		} catch (SQLException e) {
 			log.log("关闭数据库异常：", e);
 		}

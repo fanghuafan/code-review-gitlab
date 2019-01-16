@@ -15,9 +15,10 @@ import cn.eclipse.code.review.CRPlugin;
  */
 public class DatabasePerferencePage extends FieldEditorPreferencePage
         implements IWorkbenchPreferencePage {
-	public static final String ADDR = CRPlugin.PLUGIN_ID + ".mysql.addr";
-	public static final String USERNAME = CRPlugin.PLUGIN_ID + ".mysql.username";
-	public static final String PASSWORD = CRPlugin.PLUGIN_ID + ".mysql.password";
+	public static final String ROOT = CRPlugin.PLUGIN_ID + ".mysql";
+	public static final String ADDR = ROOT + ".addr";
+	public static final String USERNAME = ROOT + ".username";
+	public static final String PASSWORD = ROOT + ".password";
 
 	/**
 	 * Create the preference page.

@@ -127,7 +127,7 @@ public class CodeReviewRepositoryProvider {
 				return item.getAbsolutePath();
 			}
 		}
-		System.out.println("遍历的层级：" + parentDir);
+//		System.out.println("遍历的层级：" + parentDir);
 		return findRepoPath(parentDir);
 	}
 

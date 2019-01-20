@@ -29,9 +29,6 @@ import cn.eclipse.code.review.ui.icon.CRIcons;
  * @date 2018年12月21日
  */
 public class ViewReviewDialog extends Dialog {
-	// reply text
-	StyledText styledText;
-
 	// review model
 	private ReviewModel mReviewModel;
 
@@ -60,6 +57,17 @@ public class ViewReviewDialog extends Dialog {
 	protected Control createDialogArea(final Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);
 		container.setLayout(new GridLayout(1, false));
+
+		// title content
+		StyledText titleTxt = new StyledText(container, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
+		titleTxt.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
+		titleTxt.setText(mReviewModel.getTitle());
+		// no edit
+		titleTxt.setEditable(false);
+		GridData title_text = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		title_text.minimumHeight = 30;
+		title_text.grabExcessVerticalSpace = true;
+		titleTxt.setLayoutData(title_text);
 
 		// comment content
 		StyledText commentTxt = new StyledText(container, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);

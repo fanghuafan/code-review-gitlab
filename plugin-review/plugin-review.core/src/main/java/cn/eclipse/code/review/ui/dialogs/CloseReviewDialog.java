@@ -86,7 +86,7 @@ public class CloseReviewDialog extends Dialog {
 		// coder
 		Label coderLbl = new Label(container, SWT.NONE);
 		coderLbl.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
-		coderLbl.setText("Coder");
+		coderLbl.setText("Assigee");
 		Label coder = new Label(container, SWT.NONE);
 		coder.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
 		coder.setText(mReviewModel.getToCoder());
@@ -94,7 +94,7 @@ public class CloseReviewDialog extends Dialog {
 		// comment
 		Label commentLbl = new Label(container, SWT.NONE);
 		commentLbl.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
-		commentLbl.setText("Coder");
+		commentLbl.setText("Coment");
 		StyledText commentTxt = new StyledText(container, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
 		commentTxt.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
 		commentTxt.setText(mReviewModel.getComment());

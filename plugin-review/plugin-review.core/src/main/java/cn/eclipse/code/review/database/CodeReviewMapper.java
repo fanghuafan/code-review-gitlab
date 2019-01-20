@@ -64,9 +64,9 @@ public class CodeReviewMapper {
 				+ "(reviewer, to_coder, project, class_path, start_line, end_line, comment_time, comment, "
 				+ "status, complete_time, code, code_change, comment_type, commit_id, coder_reply,"
 				+ "reviewer_id,to_coder_id,review_grade,delete_status,repo_name,gitlab_owner,"
-				+ "gitlab_project_id,gitlab_review_id, project_class_path) "
-				+ "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		PreparedStatement pst = MySQLHelper.getPreparedStatement(sql);
+				+ "gitlab_project_id,gitlab_review_id, project_class_path,title) "
+				+ "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement pst = MySQLHelper.getPreparedStatementAndKey(sql);
 		if (pst == null) {
 			return false;
 		}
@@ -101,11 +101,20 @@ public class CodeReviewMapper {
 			pst.setInt(19, model.getDeleteStatus());
 			pst.setString(20, model.getRepoName());
 			pst.setString(21, model.getGitlabOwner());
-			pst.setInt(22, model.getGitlabProjectId());
+			pst.setInt(22, model.getGitlabProjectId() == null ? 0 : model.getGitlabProjectId());
 			pst.setInt(23, model.getGitlabCommentId() == null ? 0 : model.getGitlabCommentId());
 			pst.setString(24, model.getProjectClassPath());
+			pst.setString(25, model.getTitle());
+
 			int count = pst.executeUpdate();
 			if (count > 0) {
+				ResultSet rs = pst.getGeneratedKeys();
+				if (rs.next()) {
+					log.log("插入返回主键为：" + rs.getInt(1));
+					model.setId(rs.getInt(1));
+				}
+				rs.close();// 释放资源
+
 				return true;
 			}
 		} catch (SQLException e) {
@@ -158,7 +167,18 @@ public class CodeReviewMapper {
 	 */
 	public boolean updateInfo(ReviewModel model) {
 		// 更新数据的sql语句
-		String sql = "update t_code_review_info set comment=?,comment_type=?,to_coder=?,to_coder_id=?,delete_status=?,gitlab_review_id=? where id=?";
+		String sql = "update t_code_review_info set "
+				+ "comment=?,"
+				+ "comment_type=?,"
+				+ "to_coder=?,"
+				+ "to_coder_id=?,"
+				+ "delete_status=?,"
+				+ "gitlab_review_id=?,"
+				+ "title=?"
+				+ (model.getCommitId() == null ? "" : " ,commit_id=?")
+				+ (model.getGitlabOwner() == null ? "" : " ,gitlab_owner=?") 
+				+ (model.getGitlabProjectId() == null ? "" : " ,gitlab_project_id=?") 
+				+ " where id=?";
 		PreparedStatement pst = MySQLHelper.getPreparedStatement(sql);
 		if (pst == null) {
 			return false;
@@ -169,8 +189,23 @@ public class CodeReviewMapper {
 			pst.setString(3, model.getToCoder());
 			pst.setInt(4, model.getToCoderId());
 			pst.setInt(5, model.getDeleteStatus());
-			pst.setInt(6, model.getGitlabCommentId());
-			pst.setInt(7, model.getId());
+			pst.setInt(6, model.getGitlabCommentId() == null ? 0 : model.getGitlabCommentId());
+			pst.setString(7, model.getTitle());
+
+			int index = 7;
+			// commit id
+			if (model.getCommitId() != null) {
+				pst.setString(++index, model.getCommitId());
+			}
+			// gitlab project owner
+			if (model.getGitlabOwner() != null) {
+				pst.setString(++index, model.getGitlabOwner());
+			}
+			if (model.getGitlabProjectId() != null) {
+				pst.setInt(++index, model.getGitlabProjectId());
+			}
+			pst.setInt(++index, model.getId());
+
 			int count = pst.executeUpdate();
 			if (count > 0) {
 				return true;
@@ -225,6 +260,7 @@ public class CodeReviewMapper {
 				model.setRepoName(rs.getString("repo_name"));
 				model.setGitlabOwner(rs.getString("gitlab_owner"));
 				model.setProjectClassPath(rs.getString("project_class_path"));
+				model.setTitle(rs.getString("title"));
 
 //				log.log("query comment result:" + model);
 				daList.add(model);

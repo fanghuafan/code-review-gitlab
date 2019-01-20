@@ -95,16 +95,49 @@ public class DataServices {
 	 * @return 是否操作成功
 	 */
 	public boolean handleReviewToDB(ReviewModel model) {
-		Integer resultId = gitlabDataHandle(model);
-		if (!COMMENT.equalsIgnoreCase(model.getCommentType())) {
-			if (resultId != null) {
-				model.setGitlabCommentId(resultId);
-			}
-		}
+		boolean is = false;
 		if (model.getId() == null) {
-			return mapper.insert(model);
+			is = mapper.insert(model);
 		} else {
-			return mapper.updateInfo(model);
+			is = mapper.updateInfo(model);
+		}
+		// 启动一个线程写入gitlab
+		WriteToGitLab wGitLab = new WriteToGitLab();
+		wGitLab.setModel(model);
+		Thread thread = new Thread(wGitLab);
+		thread.start();
+		return is;
+	}
+
+	/**
+	 * @desciption 启动一个线程写入GitLab
+	 * @author jack_fan
+	 * @date 2019年1月19日
+	 */
+	class WriteToGitLab implements Runnable {
+		private ReviewModel model;
+
+		/**
+		 * @param model the model to set
+		 */
+		public void setModel(ReviewModel model) {
+			this.model = model;
+		}
+
+		@Override
+		public void run() {
+			if (model != null) {
+				Integer resultId = gitlabDataHandle(model);
+				if (!COMMENT.equalsIgnoreCase(model.getCommentType())) {
+					if (resultId != null) {
+						model.setGitlabCommentId(resultId);
+					}
+				}
+				boolean is = mapper.updateInfo(model);
+				if (is) {
+					log.log("write to gitlab success!");
+				}
+			}
 		}
 	}
 
@@ -298,7 +331,7 @@ public class DataServices {
 							: model.getGitlabCommentId(),
 					null, null, "COde Review",
 					commentStr,
-					model.getClassPath() + " file code review",
+					model.getTitle() + "(Code Review)",
 					GitlabIssue.Action.REOPEN);
 			if (issue != null) {
 				return issue.getIid();
@@ -330,7 +363,8 @@ public class DataServices {
 			}
 		}
 		try {
-			GitLabSnippets snippets = gApi.createOrUpdateSippets(model.getGitlabCommentId(), model.getClassPath(),
+			GitLabSnippets snippets = gApi.createOrUpdateSippets(model.getGitlabCommentId(),
+					model.getTitle() + "(Code Review)",
 					fileName, model.getCode(),
 					commentStr, null);
 			if (snippets != null) {

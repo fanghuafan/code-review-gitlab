@@ -63,6 +63,7 @@ public class ReviewDialog extends Dialog {
 	private static final String COMMENT_VIEW_HEADER = "////////////////////////////////comment/////////////////////////////\r\n";
     private Text text;
     StyledText styledText;
+	StyledText titleText;
     IFile file;
     TextSelection ts;
 	// 单选按钮
@@ -121,14 +122,23 @@ public class ReviewDialog extends Dialog {
 		text.setLayoutData(
                 new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
                 
-        Label lblNewLabel_1 = new Label(container, SWT.NONE);
+		// comment title
+		Label title_lbl = new Label(container, SWT.NONE);
+		title_lbl.setText("Title");
+
+		titleText = new StyledText(container, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
+		GridData gd_titleText = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_titleText.minimumHeight = 30;
+		titleText.setLayoutData(gd_titleText);
+
+		// comment content
+		Label lblNewLabel_1 = new Label(container, SWT.NONE);
         lblNewLabel_1.setText("Content");
         
-		// comment content
         styledText = new StyledText(container,
                 SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
         GridData gd_styledText = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
-        gd_styledText.minimumHeight = 100;
+		gd_styledText.minimumHeight = 250;
         styledText.setLayoutData(gd_styledText);
                 
 		if (mReviewModel == null) {
@@ -210,11 +220,14 @@ public class ReviewDialog extends Dialog {
 		int line = mReviewModel.getStartLine() == null ? 0 : mReviewModel.getStartLine();
 		line++;
 		String text = mReviewModel.getComment() == null ? "" : mReviewModel.getComment();
+		String tText = mReviewModel.getTitle() == null ? "" : mReviewModel.getTitle();
 		String msg = String.format("Code: %s:%s ", mReviewModel.getClassPath(), line);
 		// 设置文件路径以及行位置
 		this.text.setText(msg);
 		// 设置comment content
 		styledText.setText(text);
+		titleText.setText(tText);
+
 		// 设置content_type
 		selectRadio = mReviewModel.getCommentType();
 		if (CommentType.COMMENT.getType().equalsIgnoreCase(selectRadio)) {
@@ -295,6 +308,7 @@ public class ReviewDialog extends Dialog {
 		mReviewModel.setReviewer(reviewer.getName());
 		mReviewModel.setReviewerId(reviewer.getId());
 		mReviewModel.setComment(styledText.getText());
+		mReviewModel.setTitle(titleText.getText());
 		mReviewModel.setToCoder(toCoder.getName());
 		mReviewModel.setToCoderId(toCoder.getId());
 		mReviewModel.setCommentTime(new Date());
@@ -327,7 +341,7 @@ public class ReviewDialog extends Dialog {
 
 			super.okPressed();
 			// 刷新数据
-			if (mReviewModel.getId() != null) {
+			if (codeReviewListDailog != null && mReviewModel.getId() != null) {
 				codeReviewListDailog.reviewList(null);
 			}
 		}
@@ -353,7 +367,7 @@ public class ReviewDialog extends Dialog {
      */
     @Override
     protected Point getInitialSize() {
-		return new Point(550, 500);
+		return new Point(550, 570);
     }
     
     @Override

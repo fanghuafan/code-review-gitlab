@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='2'>
-  <artifact classifier='osgi.bundle' id='plugin-review.test' version='0.0.1.20190116-2336'>
+  <artifact classifier='osgi.bundle' id='plugin-review.test' version='0.0.1.20190120-1210'>
     <properties size='5'>
-      <property name='artifact.size' value='2873'/>
-      <property name='download.size' value='2873'/>
+      <property name='artifact.size' value='2870'/>
+      <property name='download.size' value='2870'/>
       <property name='maven-groupId' value='plugin.code.review'/>
       <property name='maven-artifactId' value='plugin-review.test'/>
       <property name='maven-version' value='0.0.1-SNAPSHOT'/>
     </properties>
   </artifact>
-  <artifact classifier='osgi.bundle' id='plugin-review.test.source' version='0.0.1.20190116-2336'>
+  <artifact classifier='osgi.bundle' id='plugin-review.test.source' version='0.0.1.20190120-1210'>
     <properties size='6'>
-      <property name='artifact.size' value='2004'/>
-      <property name='download.size' value='2004'/>
+      <property name='artifact.size' value='1999'/>
+      <property name='download.size' value='1999'/>
       <property name='maven-groupId' value='plugin.code.review'/>
       <property name='maven-artifactId' value='plugin-review.test'/>
       <property name='maven-version' value='0.0.1-SNAPSHOT'/>

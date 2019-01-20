@@ -16,6 +16,8 @@ import java.util.Date;
 public class ReviewModel {
 	// key
 	private Integer id;
+	// 标题
+	private String title;
 	// reviewer
 	private String reviewer;
 	// to the coder
@@ -64,6 +66,20 @@ public class ReviewModel {
 	private String repoName;
 	// 工程创建人
 	private String gitlabOwner;
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 	/**
 	 * @return the gitlabOwner
@@ -437,22 +453,23 @@ public class ReviewModel {
 	 */
 	@Override
 	public String toString() {
-		return "ReviewModel [id=" + id + ", reviewer=" + reviewer + ", toCoder=" + toCoder + ", project=" + project
-				+ ", classPath=" + classPath + ", projectClassPath=" + projectClassPath + ", absoluteClassPath="
-				+ absoluteClassPath + ", startLine=" + startLine + ", endLine=" + endLine + ", commentTime="
-				+ commentTime + ", comment=" + comment + ", status=" + status + ", completeTime=" + completeTime
-				+ ", code=" + code + ", codeChange=" + codeChange + ", commentType=" + commentType + ", commitId="
-				+ commitId + ", coderReply=" + coderReply + ", reviewerId=" + reviewerId + ", toCoderId=" + toCoderId
-				+ ", reviewGrade=" + reviewGrade + ", deleteStatus=" + deleteStatus + ", gitlabProjectId="
-				+ gitlabProjectId + ", gitlabCommentId=" + gitlabCommentId + ", repoName=" + repoName + ", gitlabOwner="
-				+ gitlabOwner + ", getGitlabOwner()=" + getGitlabOwner() + ", getCoderReply()=" + getCoderReply()
-				+ ", getId()=" + getId() + ", getReviewer()=" + getReviewer() + ", getToCoder()=" + getToCoder()
-				+ ", getProject()=" + getProject() + ", getClassPath()=" + getClassPath() + ", getStartLine()="
-				+ getStartLine() + ", getEndLine()=" + getEndLine() + ", getCommentTime()=" + getCommentTime()
-				+ ", getComment()=" + getComment() + ", getStatus()=" + getStatus() + ", getCompleteTime()="
-				+ getCompleteTime() + ", getCode()=" + getCode() + ", getCodeChange()=" + getCodeChange()
-				+ ", getCommentType()=" + getCommentType() + ", getCommitId()=" + getCommitId() + ", getReviewerId()="
-				+ getReviewerId() + ", getToCoderId()=" + getToCoderId() + ", getReviewGrade()=" + getReviewGrade()
+		return "ReviewModel [id=" + id + ", title=" + title + ", reviewer=" + reviewer + ", toCoder=" + toCoder
+				+ ", project=" + project + ", classPath=" + classPath + ", projectClassPath=" + projectClassPath
+				+ ", absoluteClassPath=" + absoluteClassPath + ", startLine=" + startLine + ", endLine=" + endLine
+				+ ", commentTime=" + commentTime + ", comment=" + comment + ", status=" + status + ", completeTime="
+				+ completeTime + ", code=" + code + ", codeChange=" + codeChange + ", commentType=" + commentType
+				+ ", commitId=" + commitId + ", coderReply=" + coderReply + ", reviewerId=" + reviewerId
+				+ ", toCoderId=" + toCoderId + ", reviewGrade=" + reviewGrade + ", deleteStatus=" + deleteStatus
+				+ ", gitlabProjectId=" + gitlabProjectId + ", gitlabCommentId=" + gitlabCommentId + ", repoName="
+				+ repoName + ", gitlabOwner=" + gitlabOwner + ", getTitle()=" + getTitle() + ", getGitlabOwner()="
+				+ getGitlabOwner() + ", getCoderReply()=" + getCoderReply() + ", getId()=" + getId()
+				+ ", getReviewer()=" + getReviewer() + ", getToCoder()=" + getToCoder() + ", getProject()="
+				+ getProject() + ", getClassPath()=" + getClassPath() + ", getStartLine()=" + getStartLine()
+				+ ", getEndLine()=" + getEndLine() + ", getCommentTime()=" + getCommentTime() + ", getComment()="
+				+ getComment() + ", getStatus()=" + getStatus() + ", getCompleteTime()=" + getCompleteTime()
+				+ ", getCode()=" + getCode() + ", getCodeChange()=" + getCodeChange() + ", getCommentType()="
+				+ getCommentType() + ", getCommitId()=" + getCommitId() + ", getReviewerId()=" + getReviewerId()
+				+ ", getToCoderId()=" + getToCoderId() + ", getReviewGrade()=" + getReviewGrade()
 				+ ", getDeleteStatus()=" + getDeleteStatus() + ", getGitlabProjectId()=" + getGitlabProjectId()
 				+ ", getGitlabCommentId()=" + getGitlabCommentId() + ", getAbsoluteClassPath()="
 				+ getAbsoluteClassPath() + ", getRepoName()=" + getRepoName() + ", getProjectClassPath()="
